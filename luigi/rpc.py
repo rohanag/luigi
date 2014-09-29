@@ -110,7 +110,7 @@ class RemoteScheduler(Scheduler):
             'params': params,
         })
 
-    def get_work(self, worker, host=None):
+    def get_work(self, worker, host=None, slave=False):
         ''' Ugly work around for an older scheduler version, where get_work doesn't have a host argument. Try once passing
             host to it, falling back to the old version. Should be removed once people have had time to update everything
         '''
