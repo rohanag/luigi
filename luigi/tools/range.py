@@ -14,7 +14,7 @@
 
 """Produces contiguous completed ranges of recurring tasks.
 
-Caveat - if gap causes (missing dependencies) aren't acted upon then this will
+Caveat - if gap causes (missing dependencies) aren't acted upon, then this will
 eventually schedule the same gaps again and again and make no progress to other
 datehours.
 TODO foolproof against that kind of misuse?
@@ -30,7 +30,6 @@ import re
 import time
 
 logger = logging.getLogger('luigi-interface')
-# logging.basicConfig(level=logging.DEBUG)
 
 
 class RangeHourlyBase(luigi.WrapperTask):
@@ -179,7 +178,7 @@ class RangeHourly(RangeHourlyBase):
 
     Convenient to use even from command line, like:
 
-        luigi --module your.module --task RangeHourly --of YourActualTask --start 2014-01-01T00
+        luigi --module your.module RangeHourly --of YourActualTask --start 2014-01-01T00
 
     Intended to be further developed to use an explicit API or pick a suitable
     heuristic for other types of tasks too, e.g. Postgres exporters...
